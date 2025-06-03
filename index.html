@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Underdog&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/dice.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <script src="./assets/js/lodash/lodash.min.js"></script>
+    <script type="module" src="./assets/js/popup.js" defer></script>
+    <script type="module" src="./assets/js/app.js"></script>
+    <title>Quizz</title>
+</head>
+
+<body>
+    <header id="titre">
+        <!-- Lien vers homepage -->
+        <a class="go-home" href="http://">
+            <i class="fa-solid fa-house fa-xl" style="color:bisque"></i>
+        </a>
+        <h1>Quizz</h1>
+        <!-- Ouverture popup -->
+        <i class="open-rules fa-solid fa-circle-info fa-xl" style="color:bisque"></i>
+    </header>
+    <main class="container">
+        <section id="userInterface">
+            <div id="choixUser">
+                <h1 class="titreNiveau">Choissisez le niveau des questions</h1>
+                <!-- générer en JS (btn radio) -->
+                <button id="go" class="noselect">Jouer</button>
+            </div>
+            <!-- Dé -->
+            <div class="containerDice hidden">
+                <h2 class="gain hidden">Vous jouez pour <span>3</span> point(s)</h2>
+                <div id="dice">
+                    <div class="dice">
+                        <ol class="die-list" data-roll="1" id="die-1">
+                            <li class="die-item" data-side="1">
+                                <span class="dot"></span>
+                            </li>
+                            <li class="die-item" data-side="2">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </li>
+                            <li class="die-item" data-side="3">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </li>
+                            <li class="die-item" data-side="4">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </li>
+                            <li class="die-item" data-side="5">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </li>
+                            <li class="die-item" data-side="6">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </li>
+                        </ol>
+                    </div>
+                </div> <!-- fin id="dice" -->
+            </div>
+            <div id="zoneQuestion" class="hidden">
+                <div>
+                    <h2>Question : <br><br><span class="texteQuestion"></span></h2>
+                    <br>
+                    <p class="rappelChoix">(Catégorie : <span class="categorie"></span> - Niveau : <span
+                            class="niveau"></span>)</p>
+                    <br>
+                    <h2 class="">Sélectionner votre réponse :</h2>
+                    <br>
+                    <div id="proposition">
+                        <!-- générer en JS (Question et réponse) -->
+                    </div>
+                </div>
+            </div>
+            <!-- Boutons -->
+            <div class="boutonsAgainInit">
+                <button class="suivant hidden"><i class="fa fa-step-forward fa-lg"></i></button>
+                <button class="init hidden"><i class="fa fa-refresh fa-lg"></i></button>
+            </div>
+        </section>
+        <section id="sectionPlateau">
+            <div id="divPlateau">
+                <!-- Svg avec le plateau de jeu charger en JS -->
+            </div>
+            <div id="score">
+                <h2 class="score hidden">Score : <span id="nbBonneReposne"></span> / <span id="NbTotalQuestion"></span>
+                </h2>
+            </div>
+        </section>
+    </main>
+
+    <!-- ***** -->
+    <!-- POPUP -->
+    <!-- ***** -->
+    <div class="popup-overlay">
+        <!-- Regle du jeu -->
+        <div id="rules" class="popup-content">
+            <div class="button-close-rules fillIn">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </div>
+            <div class="containerPopup">
+                <div class="top">
+                    <div class="packages">
+                        <h1>Règle du jeu</h1>
+                        <h2>Quizz à 3 niveaux de difficultées :</h2>
+                        <ul>
+                            <li>Facile</li>
+                            <li>Normal</li>
+                            <li>Difficile</li>
+                        </ul>
+                        <h2>Thèmes possible pour chaque question :</h2>
+                        <ul>
+                            <li>TV & Cinéma</li>
+                            <li>Art & Littérature</li>
+                            <li>Musique</li>
+                            <li> Actualité politique</li>
+                            <li>Culture générale</li>
+                            <li>Sport</li>
+                            <li>Jeux videos</li>
+                        </ul>
+                        <h2>À chaque tour :</h2>
+                        <ul>
+                            <li>Le dé est lancé automaiquement.</li>
+                            <li>Si la réponse à la question est correct le pion avance du nombre indiqué par le dé.</li>
+                            <li>Pour passer à la question suivante, appuyez sur le bouton
+                                <span>
+                                    <i class="fa fa-step-forward fa-lg"></i>
+                                </span>
+                            </li>
+                        </ul>
+                        <h2>Cases spéciales :</h2>
+                        <ul>
+                            <li><span>Case 5</span> → Avance directement à la case <span>14</span>.</li>
+                            <li><span>Case 24</span> → Avance directement à la case <span>29</span>.</li>
+                            <li><span>Case 37</span> → Recule à la case <span>18</span>.</li>
+                            <li><span>Case 42</span> → Avance à la case <span>39</span>.</li>
+                        </ul>
+                        <h2>Règles de déplacement :</h2>
+                        <ul>
+                            <li>Votre pion avance en fonction du nombre indiqué sur le dé.</li>
+                            <li><span>Si le résultat dépasse la case 46, il doit reculer de la différence.</span></li>
+                        </ul>
+                        <h2>Fin du jeu :</h2>
+                        <p>Le jeu se termine quand le joueur atteint <span>exactement</span> la case 46.</p>
+                        <p>Il faut faire très attention au dernier déplacement pour ne pas dépasser !</p>
+                        <br>
+                        <p>Pour lancer une nouvelle partie appuyez sur le bouton
+                            <span>
+                                <i class="fa fa-refresh fa-lg"></i>
+                            </span>
+                        </p>
+                        <h2>
+                            <span>
+                                <i class="fa-solid fa-triangle-exclamation fa-xl"></i>
+                            </span>
+                        </h2>
+                        <p>Certains niveaux ont un nombre restreint de questions.</p>
+                        <p> Si vous n'avez pas atteint l'arrivée avant la fin de la liste de question, vous serez</p>
+                        <img src="./images/game-over.svg" width="200px" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- fin Regle du jeu -->
+        <!-- Game over -->
+        <div id="gameOver" class="popup-content" style="background: rgba(122, 122, 122, 0.7);">
+            <div class="containerPopup">
+                <div class="top">
+                    <div class="packages">
+                        <img width="600px" src="./images/game-over.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fin Game over -->
+    </div> <!-- Fin  div popup-overlay-->
+</body>
+
+</html>
