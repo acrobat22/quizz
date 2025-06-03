@@ -484,12 +484,10 @@ h2,
   }
 
   #sectionPlateau {
-    /* flex-basis: 40%; */
     flex: 0 1 auto;
   }
 
   #userInterface {
-    /* flex-basis: 60%; */
     flex: 2 1 auto;
   }
 
