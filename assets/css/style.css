@@ -36,10 +36,16 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: "Underdog", system-ui;
 }
 
+img {
+  display: block;
+}
+
+/* --------------------- */
+/*     COMMUNS           */
+/* --------------------- */
 body {
   background-color: var(--color-gris);
   color: var(--color-texte);
@@ -59,9 +65,7 @@ header {
   background: var(--color-gris);
   text-align: center;
   align-items: center;
-  font-size: calc(var(--font-size-fluid) * 2);
-  margin-top: 27px;
-  margin-bottom: 27px;
+  font-size: calc(var(--font-size-fluid));
   line-height: var(--line-height-title);
 }
 
@@ -90,12 +94,16 @@ header {
   gap: 5px;
 }
 
-/* *************************** */
-/* Section 1 - User            */
-/* *************************** */
+/* --------------------- */
+/* Section 1 - User      */
+/* --------------------- */
 #userInterface {
   align-self: center;
   flex-basis: 50%;
+  height: fit-content;
+  height: 100vh;
+  min-height: 100vh;
+  max-height: 100vh;
 }
 
 #choixUser,
@@ -104,10 +112,6 @@ header {
   box-sizing: border-box;
   text-align: center;
   margin-top: 4%;
-}
-
-.titreNiveau {
-  font-size: calc(var(--font-size-fluid) * 2);
 }
 
 .niveaux {
@@ -123,8 +127,6 @@ label {
   padding-right: 25px;
   padding-left: 25px;
   font-size: calc(var(--font-size-fluid) * 0.9);
-  line-height: var(--line-height);
-
 }
 
 input {
@@ -247,19 +249,18 @@ button:focus {
   margin-top: 4%;
 }
 
-/* *************************** */
-/*          Dé                 */
-/* *************************** */
+/* --------------------- */
+/*          Dé           */
+/* --------------------- */
 .containerDice {
   padding: 10px;
   box-sizing: border-box;
   align-self: center;
 }
 
-/* *************************** */
-/*    Questions                */
-/* *************************** */
-
+/* --------------------- */
+/*    Questions          */
+/* --------------------- */
 h2,
 #question {
   margin: 10px auto;
@@ -277,15 +278,16 @@ h2,
   font-size: calc(var(--font-size-fluid) * 0.9);
 }
 
-/* *************************** */
-/*    Propositions réponses    */
-/* *************************** */
+/* --------------------- */
+/* Propositions réponses */
+/* --------------------- */
 .answers {
   display: block;
   width: 70%;
   margin: 12px auto;
   padding: 2%;
-  font-size: calc(var(--font-size-fluid) * 1.1);
+  height: fit-content;
+  font-size: calc(var(--font-size-fluid));
   background-color: #222224;
   border-radius: 5px;
   color: var(--color-texte);
@@ -332,17 +334,17 @@ h2,
   background: var(--color-orange);
 }
 
-/* *************************** */
-/* boutons suivant et init     */
-/* *************************** */
+/* --------------------- */
+/* boutons suivant & init*/
+/* --------------------- */
 .boutonsAgainInit {
   height: 50px;
   margin-top: 2%;
 }
 
-/* *************************** */
-/* Section 2 - droite plateau  */
-/* *************************** */
+/* --------------------- */
+/* Section 2  plateau    */
+/* --------------------- */
 #sectionPlateau {
   align-self: center;
   flex-basis: 50%;
@@ -367,9 +369,9 @@ h2,
   margin-top: 4%;
 }
 
-/* *************************** */
-/*           POPUP             */
-/* *************************** */
+/* --------------------- */
+/*        POPUP          */
+/* --------------------- */
 .open-btn {
   font-size: calc(var(--font-size-fluid) * 1.2);
   background-color: #211f1f;
@@ -389,7 +391,7 @@ h2,
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   justify-content: center;
   align-items: center;
   background: rgba(122, 122, 122, 0.3);
@@ -470,6 +472,9 @@ h2,
   }
 }
 
+/* --------------------- */
+/*     Medias queries    */
+/* --------------------- */
 /* Tablettes (<= 1024px) */
 @media (max-width: 1024px) {
   .container {

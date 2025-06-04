@@ -17,6 +17,7 @@
     <title>Quizz</title>
 </head>
 
+
 <body>
     <header id="titre">
         <!-- Lien vers homepage -->
@@ -36,50 +37,47 @@
             </div>
             <!-- Dé -->
             <div class="containerDice hidden">
-                <h2 class="gain hidden">Vous jouez pour <span>3</span> point(s)</h2>
-                <div id="dice">
-                    <div class="dice">
-                        <ol class="die-list" data-roll="1" id="die-1">
-                            <li class="die-item" data-side="1">
-                                <span class="dot"></span>
-                            </li>
-                            <li class="die-item" data-side="2">
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                            </li>
-                            <li class="die-item" data-side="3">
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                            </li>
-                            <li class="die-item" data-side="4">
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                            </li>
-                            <li class="die-item" data-side="5">
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                            </li>
-                            <li class="die-item" data-side="6">
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                            </li>
-                        </ol>
+                <div class="newDice">
+                    <div class="cube">
+                        <div class="front">
+                            <span class="dot dot1"></span>
+                        </div>
+                        <div class="back">
+                            <span class="dot dot1"></span>
+                            <span class="dot dot2"></span>
+                        </div>
+                        <div class="right">
+                            <span class="dot dot1"></span>
+                            <span class="dot dot2"></span>
+                            <span class="dot dot3"></span>
+                        </div>
+                        <div class="left">
+                            <span class="dot dot1"></span>
+                            <span class="dot dot2"></span>
+                            <span class="dot dot3"></span>
+                            <span class="dot dot4"></span>
+                        </div>
+                        <div class="top">
+                            <span class="dot dot1"></span>
+                            <span class="dot dot2"></span>
+                            <span class="dot dot3"></span>
+                            <span class="dot dot4"></span>
+                            <span class="dot dot5"></span>
+                        </div>
+                        <div class="bottom">
+                            <span class="dot dot1"></span>
+                            <span class="dot dot2"></span>
+                            <span class="dot dot3"></span>
+                            <span class="dot dot4"></span>
+                            <span class="dot dot5"></span>
+                            <span class="dot dot6"></span>
+                        </div>
                     </div>
-                </div> <!-- fin id="dice" -->
+                </div>
             </div>
             <div id="zoneQuestion" class="hidden">
                 <div>
-                    <h2>Question : <br><br><span class="texteQuestion"></span></h2>
+                    <h3>Question : <br><br><span class="texteQuestion"></span></h3>
                     <br>
                     <p class="rappelChoix">(Catégorie : <span class="categorie"></span> - Niveau : <span
                             class="niveau"></span>)</p>

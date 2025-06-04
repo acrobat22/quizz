@@ -1,13 +1,13 @@
 import { Quizz } from "./Quizz.js";
 import { Api } from "./Api.js";
-import { GestionnaireSVG } from "./GestionnaireSVG.js";
+import { SvgManager } from "./SvgManager.js";
 import { openGameOver } from "../popup.js";
+import { Dice } from "./Dice.js";
 
 export class Play {
     #go;                    // Bouton lancement jeu
     #zoneChoixUser;
     #zoneDice;              // Div contenant le dé au démarrage display none
-    #dice;                  // Dé
     #roll;                  // Valeur du dé
     #lastRoll;              // Valeur du dé au tour précédent, à 0 lors du chargement
     #radioNiveaux;          // Niveau du quizz
@@ -20,7 +20,8 @@ export class Play {
         this.quizz = new Quizz();
         this.api = new Api();
         // Partie droite de l'ecran => chargement SVG
-        this.svg = new GestionnaireSVG();
+        this.svg = new SvgManager();
+        this.dice = new Dice();
         // Valeur du dé
         this.#roll;
         this.#lastRoll;
@@ -31,7 +32,6 @@ export class Play {
         this.init = document.querySelector(".init");
         this.#radioNiveaux = document.querySelectorAll(".niveaux input");
         this.#zoneDice = document.querySelector(".containerDice");
-        this.#dice = document.querySelector(".dice");
         this.#zoneChoixUser = document.querySelector("#choixUser");
         this.#zoneQuestion = document.querySelector("#zoneQuestion");
     }
@@ -236,7 +236,7 @@ export class Play {
             this.init.classList.remove("hidden");
             openGameOver();
         } else {
-            this.#rollDice();
+            this.roll = this.dice.roll();
             // Dans le lot de question, on choisi une question (quest) au hasard
             // this.serieOfQuestions => utilise le getteurs
             const rang = this.#aleatoireQuestion(this.serieOfQuestions.length);
@@ -269,38 +269,6 @@ export class Play {
      */
     #aleatoireQuestion(nbElement) {
         return Math.floor(Math.random() * nbElement);
-    }
-
-    /**
-     * Méthode qui lance la rotation du dé en fonction
-     * du random entre 1 et 6
-     */
-    #rollDice() {
-        // Pour animation si le dé sort le même nombre que le lancé
-        // Précédent
-        const monDice = document.querySelector("#dice");
-        monDice.classList.remove("animation-scale-down");
-        // Zone gain => vous jouez pour X point(s)
-        const gain = document.querySelector(".gain");
-        // random entre 1 et 6
-        const roll = Math.floor(Math.random() * 6) + 1;
-        this.roll = roll;
-        this.#dice = [...document.querySelectorAll(".die-list")];
-        setTimeout(() => {
-            gain.classList.remove("hidden");
-            this.#dice.forEach(die => {
-                die.dataset.roll = roll;
-            })
-            gain.querySelector("span").textContent = roll;
-        }, 300);
-        // Ajout animation si le nombre aléatoire est le
-        // même qu'au lancé précédent
-        if (this.roll === this.lastRoll) {
-            setTimeout(() => {
-                monDice.classList.add("animation-scale-down");
-            }, 300);
-        }
-        this.lastRoll = roll;
     }
 
     // ********************** //

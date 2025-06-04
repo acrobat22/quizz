@@ -1,4 +1,4 @@
-export class GestionnaireSVG {
+export class SvgManager {
     #SVGFile;
     #currentPosition; 
 
