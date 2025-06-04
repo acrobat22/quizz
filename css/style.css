@@ -378,6 +378,10 @@ h2,
   border-radius: 50%;
 }
 
+.open-rules {
+  cursor: pointer;
+}
+
 .fa-circle-info:hover,
 .fa-house:hover {
   transition: 0.35s;

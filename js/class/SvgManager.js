@@ -11,7 +11,7 @@ export class SvgManager {
      * Méthode asynchrone qui instancie le SVG contenant le plateau de jeu
      */
     async initSVG() {
-        const pathToSvg = "./images/plateauWithPawns.svg";
+        const pathToSvg = "./assets/images/plateauWithPawns.svg";
         // Création de l'élément object
         const divPlateau = document.querySelector("#divPlateau");
         const balisePlateau = document.createElement("object");
