@@ -432,6 +432,10 @@ h2,
 /* --------------------- */
 /* Tablettes (<= 1024px) */
 @media (max-width: 1024px) {
+  body {
+    overflow:scroll;
+  }
+
   .container {
     flex-direction: column-reverse;
     gap: 0px;
