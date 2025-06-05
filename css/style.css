@@ -210,7 +210,6 @@ button:focus {
   text-align: center;
 }
 
-
 /* --------------------- */
 /*          Dé           */
 /* --------------------- */
@@ -292,8 +291,6 @@ h2,
 .choixFaux:hover {
   background: var(--color-orange);
 }
-
-
 
 /* --------------------- */
 /* Section 2  plateau    */
@@ -433,7 +430,7 @@ h2,
 /* Tablettes (<= 1024px) */
 @media (max-width: 1024px) {
   body {
-    overflow:scroll;
+    overflow-y:scroll;
   }
 
   .container {
@@ -442,7 +439,7 @@ h2,
   }
 
   #divPlateau {
-    width: 70vw;
+    width: 50vw;
   }
 
   h2,
@@ -480,6 +477,8 @@ h2,
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 4px;
+    margin-left: 1%;
+    margin-right: 1%;
   }
 
   .answers:hover {
