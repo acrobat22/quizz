@@ -1,6 +1,6 @@
 export class SvgManager {
     #SVGFile;
-    #currentPosition; 
+    #currentPosition;
 
     constructor() {
         this.#SVGFile = "default.svg";

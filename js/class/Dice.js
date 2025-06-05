@@ -68,7 +68,6 @@ export class Dice {
         return valueForReturn;
     }
 
-    // 
     /**
      * Méthode privée de génération d'un nombre aléatoire
      * @returns : un nombre aléatoire entre 1 et 6

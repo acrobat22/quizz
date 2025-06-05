@@ -48,7 +48,7 @@ export class Quizz {
             // Positionne le checked sur "facile" à la création des boutons radios
             input.checked = (index === 0);
         })
-        choixUser.append(divNiveaux);
+        choixUser.after(divNiveaux);
     }
 
     /**
@@ -118,9 +118,9 @@ export class Quizz {
         paragraphes.forEach((paragraphe) => {
             // Ajout border sur la bonne réponse
             if(paragraphe.textContent === goodAnswer) {
-                paragraphe.style.border = "7px solid #1cf251";                       
+                paragraphe.style.border = "2px solid #1cf251";                       
             } else {
-                paragraphe.style.border = "7px solid rgb(229, 117, 25)"; 
+                paragraphe.style.border = "2px solid rgb(229, 117, 25)"; 
             }
             // Modification du backgroundColor des boutons avec les réponses
             // Vert si vrai, rouge si faux

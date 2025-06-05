@@ -17,7 +17,6 @@
     <title>Quizz</title>
 </head>
 
-
 <body>
     <header id="titre">
         <!-- Lien vers homepage -->
@@ -79,11 +78,12 @@
                 <div>
                     <h3>Question : <br><br><span class="texteQuestion"></span></h3>
                     <br>
-                    <p class="rappelChoix">(Catégorie : <span class="categorie"></span> - Niveau : <span
-                            class="niveau"></span>)</p>
-                    <br>
+                    <p class="rappelChoix">
+                        (Catégorie : 
+                        <span class="categorie"></span> - Niveau : <span class="niveau"></span>)
+                        </p>
+                    
                     <h2 class="">Sélectionner votre réponse :</h2>
-                    <br>
                     <div id="proposition">
                         <!-- générer en JS (Question et réponse) -->
                     </div>
@@ -91,8 +91,8 @@
             </div>
             <!-- Boutons -->
             <div class="boutonsAgainInit">
-                <button class="suivant hidden"><i class="fa fa-step-forward fa-lg"></i></button>
-                <button class="init hidden"><i class="fa fa-refresh fa-lg"></i></button>
+                <button class="suivant noselect hidden"><i class="fa fa-step-forward fa-lg"></i></button>
+                <button class="init noselect hidden"><i class="fa fa-refresh fa-lg"></i></button>
             </div>
         </section>
         <section id="sectionPlateau">
@@ -120,21 +120,12 @@
                     <div class="packages">
                         <h1>Règle du jeu</h1>
                         <h2>Quizz à 3 niveaux de difficultées :</h2>
-                        <ul>
-                            <li>Facile</li>
-                            <li>Normal</li>
-                            <li>Difficile</li>
-                        </ul>
+                        <p>Facile, normal ou Difficile</p>
                         <h2>Thèmes possible pour chaque question :</h2>
-                        <ul>
-                            <li>TV & Cinéma</li>
-                            <li>Art & Littérature</li>
-                            <li>Musique</li>
-                            <li> Actualité politique</li>
-                            <li>Culture générale</li>
-                            <li>Sport</li>
-                            <li>Jeux videos</li>
-                        </ul>
+                        <p>
+                            TV & Cinéma, Art & Littérature, Musique, Actualité politique,
+                            Culture générale, Sport ou Jeux videos
+                        </p>
                         <h2>À chaque tour :</h2>
                         <ul>
                             <li>Le dé est lancé automaiquement.</li>
@@ -160,7 +151,6 @@
                         <h2>Fin du jeu :</h2>
                         <p>Le jeu se termine quand le joueur atteint <span>exactement</span> la case 46.</p>
                         <p>Il faut faire très attention au dernier déplacement pour ne pas dépasser !</p>
-                        <br>
                         <p>Pour lancer une nouvelle partie appuyez sur le bouton
                             <span>
                                 <i class="fa fa-refresh fa-lg"></i>
@@ -172,8 +162,7 @@
                             </span>
                         </h2>
                         <p>Certains niveaux ont un nombre restreint de questions.</p>
-                        <p> Si vous n'avez pas atteint l'arrivée avant la fin de la liste de question, vous serez</p>
-                        <img src="./assets/images/game-over.svg" width="200px" alt="">
+                        <p> Si vous n'avez pas atteint l'arrivée avant la fin de la liste de question, vous serez Game Over</p>
                     </div>
                 </div>
             </div>
@@ -194,3 +183,23 @@
 </body>
 
 </html>
+
+<!-- <body>
+    <header>
+        <h1>titre</h1>
+    </header>
+    <main class="container">
+        <section class="userInterface">
+            <div id="choixUser"></div>
+            <div class="containerDice"></div>
+            <div id="zoneQuestion"></div>
+            <div class="boutonsAgainInit"></div>
+        </section>
+        <section class="sectionPlateau">
+            <div id="divPlateau">
+                <object data="" type="svg"></object>
+            </div>
+            <div id="score"></div>
+        </section>
+    </main>
+</body> -->

@@ -126,7 +126,6 @@ export class Play {
         const niveau = localStorage.getItem('niveau');
         // Listes des questions via API
         this.serieOfQuestions = await this.api.obtenirQuestions(niveau);
-        console.log("taille : " + this.serieOfQuestions.length);
         this.serieOfQuestions = _.shuffle(this.serieOfQuestions)
         this.#traitementSerieQuestion(niveau);
     }
@@ -134,7 +133,7 @@ export class Play {
     /**
      * Définition de le callback pour recevoir l'information de la réponse
      * de la class Quizz où sont les écouteurs sur les réponses (ligne 54)
-     * @param {*} isCorrect 
+     * @param {boolean} isCorrect 
      */
     #handleAnswer = (isCorrect) => {
         //console.log(`La réponse est ${isCorrect ? 'correcte' : 'incorrecte'}`);
@@ -229,7 +228,6 @@ export class Play {
      * @param {String} niveau 
      */
     #traitementSerieQuestion(niveau) {
-        console.log(this.#zoneQuestion);
         if (this.serieOfQuestions.length === 0) {
             this.#zoneDice.classList.add("hidden");
             this.#zoneQuestion.classList.add("hidden");
