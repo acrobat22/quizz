@@ -4,7 +4,7 @@ Sur le principe d'un jeu de l'oie mais agrémenté d'un quizz pour faire avancer
 
 Les questions et leurs réponses sont chargées à partir de https://quizzapi.jomoreschi.fr/api/v1/quiz.
 
-Le dé est un code de Samir Rijal (https://codepen.io/samirrijal/pen/VwGMBqZ).
+Le dé est un code de Steve Robertson (https://codepen.io/SteveJRobertson/pen/dPVgqK).
 
 Le plateau du jeu provient de https://fr.freepik.com/
 
@@ -25,7 +25,7 @@ Le plateau du jeu provient de https://fr.freepik.com/
 - Jeux videos
 
 ## À chaque tour :
-Le dé est lancé automaiquement.
+Le dé est lancé automatiquement.
 Si la réponse à la question est correct le pion avance du nombre indiqué par le dé.
 Pour passer à la question suivante, appuyez sur le bouton ⏭
 
