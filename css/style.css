@@ -6,7 +6,6 @@
   --color-orange: rgb(203, 121, 53);
   --color-bleu: rgb(42, 95, 157);
   --color-texte: bisque;
-
 }
 
 .underdog-regular {
@@ -61,7 +60,6 @@ header {
   flex: 1;
 }
 
-#userInterface,
 #sectionPlateau {
   flex: 1;
   display: flex;
@@ -69,6 +67,15 @@ header {
   justify-content: center;
   align-items: center;
 }
+
+#userInterface {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 
 /* --------------------- */
 /* Section 1 - User      */

@@ -15,6 +15,7 @@ export class Play {
     #serieOfQuestions = []; // Variable qui contient les questions et réponses
     #goodAnswer;
     #currentPosition;       // Position actuelle du pion sur le plateau
+    #userInterface;
 
     constructor() {
         this.quizz = new Quizz();
@@ -34,6 +35,7 @@ export class Play {
         this.#zoneDice = document.querySelector(".containerDice");
         this.#zoneChoixUser = document.querySelector("#choixUser");
         this.#zoneQuestion = document.querySelector("#zoneQuestion");
+        this.#userInterface = document.querySelector("#userInterface");
     }
 
     /**
@@ -141,10 +143,18 @@ export class Play {
             // Détermine la case d'arrivée du point après une bonne réponse
             const arrivee = this.currentPosition + this.roll;
             this.#testCaseArrivee(arrivee);
+            this.#userInterface.style.display = "none";
         } else {
             this.suivant.classList.remove("hidden");
         }
     };
+
+    #changeDisplay() {
+        setTimeout(() => {
+            this.suivant.classList.remove("hidden");
+            this.#userInterface.style.display = "flex";
+        }, 1500);
+    }
 
     /**
      * Méthode privée qui test la postion du pion en fonction de sa case d'arrivée
@@ -157,7 +167,7 @@ export class Play {
                 this.svg.animationFleche(1);
                 this.svg.showPawnsPlus(this.currentPosition, 14)
                     .then(() => this.svg.animationFleche(1))
-                    .then(() => this.suivant.classList.remove("hidden"));
+                    .then(() => this.#changeDisplay());
                 this.currentPosition = 14;
                 break;
             // Fleche 2
@@ -165,7 +175,7 @@ export class Play {
                 this.svg.animationFleche(2);
                 this.svg.showPawnsPlus(this.currentPosition, 29)
                     .then(() => this.svg.animationFleche(2))
-                    .then(() => this.suivant.classList.remove("hidden"));
+                    .then(() => this.#changeDisplay());
                 this.currentPosition = 29;
                 break;
             // Fleche 3
@@ -174,7 +184,7 @@ export class Play {
                 this.svg.showPawnsPlus(this.currentPosition, 37)
                     .then(() => this.svg.showPawnsMoins(37, 18))
                     .then(() => this.svg.animationFleche(3))
-                    .then(() => this.suivant.classList.remove("hidden"));
+                    .then(() => this.#changeDisplay());
                 this.currentPosition = 18;
                 break;
             // Fleche 4
@@ -183,7 +193,7 @@ export class Play {
                 this.svg.showPawnsPlus(this.currentPosition, 42)
                     .then(() => this.svg.showPawnsMoins(42, 39))
                     .then(() => this.svg.animationFleche(4))
-                    .then(() => this.suivant.classList.remove("hidden"));
+                    .then(() => this.#changeDisplay());
                 this.currentPosition = 39;
                 break;
             // Case Finish
@@ -192,7 +202,10 @@ export class Play {
                 this.svg.showPawnsPlus(this.currentPosition, 46);
                 this.svg.animationFinish();
                 this.init.classList.remove("hidden");
-                this.suivant.classList.add("hidden");
+                // this.suivant.classList.add("hidden");
+                setTimeout(() => {
+                    this.#userInterface.style.display = "flex";
+                }, 1500);
                 break;
             // Cases autres et case finish    
             default:
@@ -203,19 +216,19 @@ export class Play {
                     console.log(gap);
                     this.svg.showPawnsPlus(this.currentPosition, 46)
                         .then(() => this.svg.showPawnsMoins(46, 46 - gap))
-                        .then(() => this.suivant.classList.remove("hidden"));
+                        .then(() => this.#changeDisplay());
                     this.currentPosition = 46 - gap;
                 } else if (arrivee > 46 && gap == 4) {
                     // Le pion revient sur la case 42 -> 39
                     this.svg.animationFleche(4);
                     this.svg.showPawnsPlus(this.currentPosition, 46)
                         .then(() => this.svg.showPawnsMoins(46, 39))
-                        .then(() => this.suivant.classList.remove("hidden"));
+                        .then(() => this.#changeDisplay());
                     this.svg.animationFleche(4);
                     this.currentPosition = 39;
                 } else {
                     this.svg.showPawnsPlus(this.currentPosition, arrivee)
-                        .then(() => this.suivant.classList.remove("hidden"));
+                        .then(() => this.#changeDisplay());
                     this.currentPosition = arrivee;
                 }
                 break;
