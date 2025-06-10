@@ -76,7 +76,6 @@ header {
   align-items: center;
 }
 
-
 /* --------------------- */
 /* Section 1 - User      */
 /* --------------------- */
@@ -216,6 +215,12 @@ button:focus {
   box-sizing: border-box;
   text-align: center;
 }
+
+.suivant > svg:hover,
+.init > svg:hover {
+  fill: var(--color-orange);
+}
+
 
 /* --------------------- */
 /*          Dé           */

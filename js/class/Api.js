@@ -22,13 +22,28 @@ export class Api {
      * @returns : liste des questions en fonction du niveau choisi par le user
      */
     async obtenirQuestions(niveau) {
+        // Si connexion internet
         try {
             const reponse = await fetch(this.#makeUrl(niveau));
+            if (!reponse.ok) {
+                throw new Error(`Erreur ${reponse.status}: ${reponse.statusText}`);
+            }
             const questions = await reponse.json();
             return questions.quizzes;
         } catch (erreur) {
-            console.error('Erreur lors de la récupération des questions:', erreur);
-            return null;
+            // Utilise fichier en local si par d'internet
+            // https://jsonlint.com/ [formate fichier json]
+            try {
+                const reponseLocale = await fetch(`./json/${niveau}.json`);
+                if (!reponseLocale.ok) {
+                    throw new Error(`Erreur ${reponseLocale.status}: ${reponseLocale.statusText}`);
+                }
+                const questions = await reponseLocale.json();
+                return questions.quizzes;
+            } catch (erreurLocale) {
+                console.error('Échec du chargement des questions:', erreurLocale);
+                throw erreurLocale;
+            }
         }
     }
 }
