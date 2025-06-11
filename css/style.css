@@ -131,13 +131,14 @@ input:checked::before {
   width: 20px;
   height: 20px;
   display: flex;
-  content: '\f00c';
+  /* content: '\f00c'; */
+  content: "✔️";
   font-size: 17px;
   font-weight: bold;
   position: absolute;
   align-items: center;
   justify-content: center;
-  font-family: 'Font Awesome 5 Free';
+  /* font-family: 'Font Awesome 5 Free'; */
 }
 
 input:checked::after {
